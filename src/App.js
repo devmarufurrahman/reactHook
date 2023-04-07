@@ -1,11 +1,11 @@
-// import Counter from "./components/Counter";
-import User from "./components/User";
+// import Goals from "./components/useEffect/Goals";
+
+import User from "./components/useEffect/User";
 
 function App() {
 	return (
-		<div className="App">
-			{/* <h1>Hello</h1>
-			<Counter /> */}
+		<div>
+			{/* <Goals /> */}
 			<User />
 		</div>
 	);
