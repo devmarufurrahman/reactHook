@@ -5,24 +5,40 @@ const User = () => {
 	const [error, setError] = useState("");
 	const [isLoading, setIsLoading] = useState(true);
 
-	const fetchUser = () => {
-		fetch("https://jsonplaceholder.typicode.com/users")
-			.then((response) => {
-				if (!response.ok)
-					throw new Error("Something wrong!!! Please Solve & Try again");
-				return response.json();
-			})
-			.then((data) => {
-				setUsers(data);
-				setIsLoading(false);
-			})
-			.catch((error) => {
-				setError(error.message);
-				setIsLoading(false);
-			});
+	// const fetchUser = () => {
+	// 	fetch("https://jsonplaceholder.typicode.com/users")
+	// 		.then((response) => {
+	// 			if (!response.ok)
+	// 				throw new Error("Something wrong!!! Please Solve & Try again");
+	// 			return response.json();
+	// 		})
+	// 		.then((data) => {
+	// 			setUsers(data);
+	// 			setIsLoading(false);
+	// 		})
+	// 		.catch((error) => {
+	// 			setError(error.message);
+	// 			setIsLoading(false);
+	// 		});
+	// };
+
+	const fetchUserTow = async () => {
+		try {
+			const response = await fetch(
+				"https://jsonplaceholder.typicode.com/users",
+			);
+			if (!response.ok) throw new Error("Something went wrong");
+			const data = await response.json();
+			setUsers(data);
+			setIsLoading(false);
+		} catch (error) {
+			setError(error.message);
+			setIsLoading(false);
+		}
 	};
+
 	useEffect(() => {
-		fetchUser();
+		fetchUserTow();
 	}, []);
 	return (
 		<div>
