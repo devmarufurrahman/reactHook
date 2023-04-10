@@ -1,9 +1,9 @@
-import UseRef from "./components/useRef/UseRef";
+import Burger from "./components/reduce/Burger";
 
 function App() {
 	return (
 		<div>
-			<UseRef />
+			<Burger />
 		</div>
 	);
 }
